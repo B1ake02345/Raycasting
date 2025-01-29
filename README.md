@@ -21,7 +21,7 @@ pip install pygame
 ```sh
 python main.py <boundary-number>
 ```
-The *<boundary-number>* determines the amount of randomly spawned boundaries to appear.
+The *boundary-number* determines the amount of randomly spawned boundaries to appear.
 
 ## 🔧 Technologies Used
 - 🐍 Python
