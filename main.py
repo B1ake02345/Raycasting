@@ -14,8 +14,8 @@ def update(particle,boundaries):
 	particle.update()
 	pygame.display.update()
 
-def main():
-	boundaries = [Boundary([random.randint(50,WIDTH-50),random.randint(50,HEIGHT-50)],[random.randint(50,WIDTH-50),random.randint(50,HEIGHT-50)]) for i in range(5)]
+def main(boundary_num=5):
+	boundaries = [Boundary([random.randint(50,WIDTH-50),random.randint(50,HEIGHT-50)],[random.randint(50,WIDTH-50),random.randint(50,HEIGHT-50)]) for i in range(boundary_num)]
 	particle = Particle(WIDTH,HEIGHT)
 	while True:
 		clock.tick(30)
@@ -27,4 +27,14 @@ def main():
 		update(particle,boundaries)
 
 if __name__ == "__main__":
-	main()
+	args = sys.argv
+	if len(args) == 1:
+		main()
+	elif len(args) == 2:
+		if args[1].isdigit():
+			main(int(args[1]))
+		else:
+			print("Boundary Number must be an Integer!")
+			print("Usage: python main.py <Boundary Number>")
+	else:
+		print("Usage: python main.py <Boundary Number>")
